@@ -1,0 +1,6 @@
+Dockerfile
+build
+target
+.vscode
+.git*
+*.md
