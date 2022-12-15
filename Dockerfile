@@ -11,7 +11,7 @@ LABEL image="reference-python-app-build"
 WORKDIR /app
 COPY --from=dependencies /app/dependencies/ /app/dependencies/
 COPY src/ ./src/
-RUN <BUILD_COMMAND>
+#RUN <BUILD_COMMAND>
 
 # Copy only files necessary and set envionment variables 
 FROM containerstore/python:3.11
