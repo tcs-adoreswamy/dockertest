@@ -54,29 +54,28 @@ models = {
 
 
 # Sección de introducción
-st.title("Predicción de especies de Iris usando scikit-learn y Streamlit")
+# st.title("Predicción de especies de Iris usando scikit-learn y Streamlit")
 st.write(
     """
-    Bienvenid@ a este sencillo ejemplo que ejecuta un modelo entrenado 
-    de scikit-learn directo en Streamlit. 
+    Hello 
     """
 )
 
 # Sección de datos
-st.write(
-    """
-    A continuación los datos utilizados.
-    """
-)
+# st.write(
+#     """
+#     A continuación los datos utilizados.
+#     """
+# )
 # TODO: 
 # st.dataframe(dataframe)
 
 # Sección de datos
-st.write(
-    """
-    Y un pequeño gráfico generado con Plotly.
-    """
-)
+# st.write(
+#     """
+#     Y un pequeño gráfico generado con Plotly.
+#     """
+# )
 # TODO: 
 # figure = create_figure(iris)
 # st.plotly_chart(figure)
@@ -88,9 +87,13 @@ st.write(
 # Then make model = models[model_selector] to get the specified model
 
 # Especificación de datos
+# tag2 = {}
+
 st.write(
-    """
-    Especificamos las características:
+    f"""
+    FROM CMD\n
+    Username: {sys.argv[1]}\n
+    Passcode: {sys.argv[2]}
     """
 )
 
@@ -107,14 +110,13 @@ st.write(
 # features = np.array([[sepal_lenght, sepal_width, petal_lenght, petal_width]])
 # prediction = model.predict(features)[0]
 # tag = classes[prediction]
-username = input("Enter username")
-passcode = input("Passcode")
-tag1 = {username,passcode}
-
-st.markdown(
-    f"""
-    De acuerdo a la predicción del modelo, la clase correspondiente es: 
-
-    ### {tag1}
-    """
-)
+# username = input("Enter username: ")
+# passcode = input("Passcode: ")
+# tag1 = {username,passcode}
+# st.markdown(
+#     f"""\n\n
+#     FROM INT\n
+#     Username: {username}\n
+#     Passcode: {passcode}
+#     """
+# )
