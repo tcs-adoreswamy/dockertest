@@ -42,7 +42,7 @@ import numpy as np
 from iris import decision_tree
 from figure import plotly_figure_1
 from figure import plotly_figure_2
-
+import sys
 
 data = load_iris()
 iris = pd.DataFrame(data.data, columns=data.feature_names)
@@ -107,12 +107,14 @@ st.write(
 # features = np.array([[sepal_lenght, sepal_width, petal_lenght, petal_width]])
 # prediction = model.predict(features)[0]
 # tag = classes[prediction]
-tag = None
+username = input("Enter username")
+passcode = input("Passcode")
+tag1 = {username,passcode}
 
 st.markdown(
     f"""
     De acuerdo a la predicción del modelo, la clase correspondiente es: 
 
-    ### {tag}
+    ### {tag1}
     """
 )
