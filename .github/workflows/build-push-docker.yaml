@@ -37,7 +37,7 @@ jobs:
     uses: the-container-store/github-actions-scripts/.github/workflows/build-push-docker.yml@master
     with:
       APP_BUILD_TYPE: python
-      APP_NAME: reference-python-app # TODO: Replace me
+      APP_NAME: Pricing-Simulation-Poc # TODO: Replace me
       APP_TEAM:
       APP_TYPE:
       DOCKER_AUDIT: ${{ github.event.inputs.docker-audit }}
