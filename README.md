@@ -10,7 +10,7 @@ This documentation outlines the steps needed to run the application over a conta
 ### Running the application
 
 In the project directory, you can run:
-### cd scripts
+### `cd scripts`
 ### `docker-run.sh "database username" "database password"`
 Example : `scripts/docker-run.sh "myusername" "mypassword"`
 
