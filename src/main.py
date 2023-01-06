@@ -18,6 +18,7 @@ from datetime import date
 import sys
 import logging
 from logging.handlers import RotatingFileHandler
+from pathlib import Path
 
 #load logo
 im = Image.open('logo.jpg')
@@ -28,19 +29,29 @@ original_title = '<center><p style="margin-top:-40px;font-family:bold; color:#18
 st.markdown(original_title, unsafe_allow_html=True)
 oos_limit = 7
 
+
+
 #log set up 
-if not os.path.isdir(os.getcwd()+'/'+date.today().strftime('%m-%d-%Y')):
-    os.mkdir(os.getcwd()+'/'+date.today().strftime('%m-%d-%Y'))
+cwd_path = Path(os.getcwd())
+path = os.path.join(cwd_path.parent.absolute(),'logs')
+
+if not os.path.isdir(path):
+    os.mkdir(path)
+    
+if not os.path.isdir(os.path.join(path,date.today().strftime('%m-%d-%Y'))):
+    os.mkdir(os.path.join(path,date.today().strftime('%m-%d-%Y')))
     
 app_log = logging.getLogger('root')
 log_formatter = logging.Formatter('%(asctime)s %(levelname)s %(funcName)s(%(lineno)d) %(message)s')
-logFile = os.getcwd()+'\\'+date.today().strftime('%m-%d-%Y')+'\\reporting_app'
+logFile = os.path.join(path, date.today().strftime('%m-%d-%Y'),'reporting_app')
 my_handler = RotatingFileHandler(logFile, mode='a', maxBytes=10*1024*1024, backupCount=2, encoding=None, delay=0)
 my_handler.setFormatter(log_formatter)
 my_handler.setLevel(logging.INFO)
 app_log = logging.getLogger('root')
 app_log.setLevel(logging.INFO)
 app_log.addHandler(my_handler)
+
+
 
 def _all():
     """Function to call when department, collection and sku filters selected as ALL
@@ -233,6 +244,7 @@ def get_connection():
     returns database connect instance
     """
     app_log.info("Connecting to database")
+    app_log.info(f'!!!!!!! connecting to db with fololowing params name:{sys.argv[1]},code{sys.argv[2]}')
     return oracledb.connect(user = sys.argv[1], password = sys.argv[2],
                     host = "dfw-prd-ora-dss-1", port = 1521, sid="dssp")
 

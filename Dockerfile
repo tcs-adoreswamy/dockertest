@@ -1,20 +1,12 @@
-# Cache the build dependencies to reduce build time
-FROM python:3.9.15
+FROM python:3.10
 EXPOSE 8501
-LABEL image="reference-python-app-dependencies"
-WORKDIR /Reference-Python-App
-COPY requirements.txt ./
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    software-properties-common \
-    git \
-    && rm -rf /var/lib/apt/lists/*
-
-# RUN git clone https://github.com/streamlit/streamlit-example.git .
-
-RUN pip install --no-cache-dir -r requirements.txt
-
-ENTRYPOINT ["streamlit", "run", "streamlit_app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+USER root
+COPY requirements.txt ./requirements.txt
+RUN pip install --upgrade setuptools
+RUN pip install -r requirements.txt
+COPY src/ ./src/
+WORKDIR /src
+ENTRYPOINT ["streamlit", "run", "main.py", "--server.port=8501", "--server.address=0.0.0.0"]
 
 
 
