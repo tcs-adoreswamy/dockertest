@@ -6,10 +6,6 @@ Streamlit based python application that generates pricing reports
 
 This documentation outlines the steps needed to sun the application over a container
 
-### Service Now Ticket
-
-Create a Service Now ticket with the necessary information (application name, team, consul/vault usage, databases)
-DevOps will need clone and do an initial deployment of the application to devpreview.
 
 ### Running the application
 
