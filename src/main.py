@@ -244,7 +244,6 @@ def get_connection():
     returns database connect instance
     """
     app_log.info("Connecting to database")
-    app_log.info(f'!!!!!!! connecting to db with fololowing params name:{sys.argv[1]},code{sys.argv[2]}')
     return oracledb.connect(user = sys.argv[1], password = sys.argv[2],
                     host = "dfw-prd-ora-dss-1", port = 1521, sid="dssp")
 
