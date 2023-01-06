@@ -8,12 +8,12 @@
 # in http://the-container-store.github.io/Gradle-Releaser/ to see
 # how to regenerate this file based on your project settings.
 #------------------------------------------------------------------------------
-APP_NAME="dockertest2"
+APP_NAME="pricesimulation"
 
 IMAGE=$APP_NAME
 echo " building ${IMAGE}"
 cd ..
 pwd
-docker build --force-rm -t $IMAGE "."
+docker build --no-cache --force-rm -t $IMAGE "."
 
 docker run --rm -p 8080:8501 $IMAGE $1 $2

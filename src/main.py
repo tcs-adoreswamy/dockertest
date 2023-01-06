@@ -21,7 +21,7 @@ from logging.handlers import RotatingFileHandler
 from pathlib import Path
 
 #load logo
-im = Image.open('logo.jpg')
+im = Image.open('../templates/logo.jpg')
 
 #Configuring the main page with backgorund color, title and logo
 st.set_page_config(page_title="Price Reporting", page_icon=im, layout="wide", initial_sidebar_state="auto", menu_items=None)
@@ -467,7 +467,7 @@ try:
             else:
                 unique_colls = list(grid_df[grid_df['Department'] == st.session_state.dept]['Collection'].unique())
                 
-            unique_colls.sort()
+            # unique_colls.sort()
             unique_colls.insert(0,'ALL')
             
             #Collection filter

@@ -1,5 +1,4 @@
 FROM python:3.10
-EXPOSE 8501
 USER root
 COPY requirements.txt ./requirements.txt
 RUN pip install --upgrade setuptools
