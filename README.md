@@ -4,14 +4,14 @@ Streamlit based python application that generates pricing reports
 
 ## Getting Started
 
-This documentation outlines the steps needed to sun the application over a container
+This documentation outlines the steps needed to run the application over a container
 
 
 ### Running the application
 
 In the project directory, you can run:
-
-### `scripts/docker-run.sh "database username" "database password"`
+### cd scripts
+### `docker-run.sh "database username" "database password"`
 Example : `scripts/docker-run.sh "myusername" "mypassword"`
 
 Starts the streamlit server.\

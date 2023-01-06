@@ -3,6 +3,7 @@ USER root
 COPY requirements.txt ./requirements.txt
 RUN pip install --upgrade setuptools
 RUN pip install -r requirements.txt
+COPY templates/ ./templates/
 COPY src/ ./src/
 WORKDIR /src
 ENTRYPOINT ["streamlit", "run", "main.py", "--server.port=8501", "--server.address=0.0.0.0"]
