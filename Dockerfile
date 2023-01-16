@@ -1,5 +1,8 @@
 FROM python:3.10
 USER root
+ENV port 15219
+ENV host dss-db.prd.containerstore.com
+ENV sid dssp
 COPY requirements.txt ./requirements.txt
 RUN pip install --upgrade setuptools
 RUN pip install -r requirements.txt
