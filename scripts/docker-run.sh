@@ -13,7 +13,11 @@ APP_NAME="pricesimulation"
 IMAGE=$APP_NAME
 echo " building ${IMAGE}"
 cd ..
-pwd
+echo Enter database username:
+read username
+echo -n Enter database Password: 
+read -s password
+echo
 docker build --no-cache --force-rm -t $IMAGE "."
 
-docker run --rm -p 8080:8501 $IMAGE $1 $2
+docker run --rm -p 8080:8501 $IMAGE $username $password

@@ -52,6 +52,10 @@ app_log.setLevel(logging.INFO)
 app_log.addHandler(my_handler)
 
 
+# portn = os.getenv('port')
+# hostn = os.getenv('host')
+# app_log.info(f"!!!!!!!!!!!!!!!!!!port: {int(portn)} host: {str(hostn)}")
+
 
 def _all():
     """Function to call when department, collection and sku filters selected as ALL
@@ -640,7 +644,7 @@ try:
                         
                         #query to get promotion and offer data from data base for the selected sku
                         app_log.info("get promotions and offers data from the database for the sku :",sku)
-                        query = '''select C$_PROCESS_DATE,SKU,DEPT_NAME,ITEM_PROMO_CODE,ITEM_PRICE_OVERRIDE_CODE,ITEM_SALES_AMT,ITEM_QTY,RETAIL_PRICE,COST_PRICE from SJUNEJA.PRICING_ORDER_FG_N_HIERARCHY WHERE SKU ='''+ str(sku)
+                        
                         pro_data = get_promo_and_offer(query)
                         
                         #compute
